@@ -96,7 +96,8 @@ module RHC::Commands
                 # ...and also which services are available for the application
                 # for us to forward ports for.
                 if line =~ /\A\s*(\S+) -> #{HOST_AND_PORT}\z/
-                  debug fs = ForwardingSpec.new($1, $2, $3.to_i)
+                  fs = ForwardingSpec.new($1, $2, $3.to_i)
+                  debug fs.inspect
                   forwarding_specs << fs
                 else
                   debug line
